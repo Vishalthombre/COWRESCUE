@@ -1,0 +1,99 @@
+/* Sticky Navbar */
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0080f7;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Push Content Down to Prevent Overlap */
+.main-content {
+    padding-top: 60px;
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Logo */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    gap: 15px;
+}
+
+/* Hide Toggle Button on Large Screens */
+.menu-toggle {
+    display: none;
+}
+
+/* Responsive Dropdown Styling */
+@media (max-width: 768px) {
+    /* Make Navbar Links a Dropdown */
+    .navbar-links {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: white;
+        width: 200px;
+        flex-direction: column;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    /* When Open, Show the Links */
+    .navbar-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-link {
+        padding: 12px;
+        text-align: center;
+        display: block;
+        color: #333;
+        font-weight: 500;
+        transition: background 0.3s;
+    }
+
+    .nav-link:hover {
+        background: #f2f2f2;
+    }
+
+    /* Show Toggle Button on Small Screens */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #fff;
+        margin-left: auto;
+    }
+}

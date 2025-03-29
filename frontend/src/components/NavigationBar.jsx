@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
+import "./NavigationBar.css";
 
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,19 +9,27 @@ const NavigationBar = () => {
   return (
     <nav className="custom-navbar">
       <div className="navbar-container">
+        {/* Logo */}
         <Link to="/" className="navbar-brand">
           <span className="cow-logo">🐄</span>
-          <span className="brand-text">Cow Rescue</span>
+          <span className="brand-text">Home</span>
         </Link>
 
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        {/* Menu Toggle Button (Only on Small Screens) */}
+        <button 
+          className="menu-toggle" 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+        >
           ☰
         </button>
 
+        {/* Navbar Links */}
         <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
-          <span className="nav-text">For Organization</span>
-          <Link to="/login" className="nav-btn">Login</Link>
-          <Link to="/register" className="nav-btn">Register</Link>
+          <Link to="/news" className="nav-link" onClick={() => setMenuOpen(false)}>News</Link>
+          <Link to="/join" className="nav-link" onClick={() => setMenuOpen(false)}>Join as Organization</Link>
+          <Link to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <Link to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>About</Link>
         </div>
       </div>
     </nav>
