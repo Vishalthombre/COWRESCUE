@@ -81,3 +81,34 @@
     }
   }
   
+  .rescue-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .initiate-btn {
+    background-color: #21b445;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .delete-btn:hover {
+    background-color: darkred;
+  }
+  
+  .initiate-btn:hover {
+    background-color: #014c16;
+  }

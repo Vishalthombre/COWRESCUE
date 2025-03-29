@@ -12,7 +12,6 @@ const CowRescueDashboard = () => {
   }, []);
 
   const fetchRescues = async () => {
-    setLoading(true);
     setError("");
 
     try {
@@ -47,11 +46,27 @@ const CowRescueDashboard = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/cows/delete/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete rescue");
+      }
+
+      fetchRescues(); // Refresh list after delete
+    } catch (error) {
+      console.error("Error deleting rescue:", error);
+    }
+  };
+
   return (
     <div className="dashboard-container">
       {error && <p className="text-danger">{error}</p>}
       <CowRescueForm onSubmit={handleRescueSubmit} />
-      {loading ? <p>Loading rescues...</p> : <CowRescueList rescues={rescues} />}
+      {loading ? <p>Loading rescues...</p> : <CowRescueList rescues={rescues} onDelete={handleDelete} />}
     </div>
   );
 };
