@@ -15,7 +15,7 @@ const CowRescueDashboard = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/cows/rescues");
+      const response = await fetch("https://cowrescue.onrender.com/api/cows/rescues");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -30,7 +30,7 @@ const CowRescueDashboard = () => {
 
   const handleRescueSubmit = async (formData) => {
     try {
-      const response = await fetch("http://localhost:5000/api/cows/upload", {
+      const response = await fetch("https://cowrescue.onrender.com/api/cows/upload", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -48,7 +48,7 @@ const CowRescueDashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/cows/delete/${id}`, {
+      const response = await fetch(`https://cowrescue.onrender.com/api/cows/delete/${id}`, {
         method: "DELETE",
       });
 
