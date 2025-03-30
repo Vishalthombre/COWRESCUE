@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import CowRescueForm from "./CowRescueForm";
 import CowRescueList from "./CowRescueList";
 
+const API_URL = import.meta.env.VITE_API_URL; // ✅ Fixed for Vite
+
 const CowRescueDashboard = () => {
   const [rescues, setRescues] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +17,7 @@ const CowRescueDashboard = () => {
     setError("");
 
     try {
-      const response = await fetch("https://cowrescue.onrender.com/api/cows/rescues");
+      const response = await fetch(`${API_URL}/api/cows/rescues`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -30,7 +32,7 @@ const CowRescueDashboard = () => {
 
   const handleRescueSubmit = async (formData) => {
     try {
-      const response = await fetch("https://cowrescue.onrender.com/api/cows/upload", {
+      const response = await fetch(`${API_URL}/api/cows/upload`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -48,7 +50,7 @@ const CowRescueDashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`https://cowrescue.onrender.com/api/cows/delete/${id}`, {
+      const response = await fetch(`${API_URL}/api/cows/delete/${id}`, {
         method: "DELETE",
       });
 

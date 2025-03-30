@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
-import cowRescueRoutes from "./routes/cowRescueRoutes.js"; // ✅ Import routes
+import cowRescueRoutes from "./routes/cowRescueRoutes.js"; // ✅ Import Cow Rescue Routes
+import authRoutes from "./routes/authRoutes.js"; // ✅ Import Authentication Routes
 
 dotenv.config();
 
@@ -22,8 +23,9 @@ app.get("/", (req, res) => {
   res.send("Cow Rescue API is running...");
 });
 
-// ✅ Mount Cow Rescue Routes
-app.use("/api/cows", cowRescueRoutes);
+// ✅ Mount Routes
+app.use("/api/cows", cowRescueRoutes); // 🐄 Cow Rescue Routes
+app.use("/api/auth", authRoutes); // 🔒 Authentication Routes (Login/Register)
 
 // ✅ Catch-all 404 Error
 app.use((req, res) => {

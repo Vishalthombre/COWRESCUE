@@ -1,0 +1,79 @@
+/* Center the authentication container */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4;
+  }
+  
+  /* Box styling */
+  .auth-box {
+    width: 350px;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Form inputs */
+  .auth-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+  }
+  
+  /* Hover & focus effect for inputs */
+  .auth-box input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Submit button */
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  /* Hover effect for button */
+  .submit-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Error and success messages */
+  .error {
+    color: red;
+    font-size: 14px;
+  }
+  
+  .success {
+    color: green;
+    font-size: 14px;
+  }
+  
+  /* Toggle link */
+  .toggle-link {
+    margin-top: 15px;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+  
+  /* Hover effect for toggle link */
+  .toggle-link:hover {
+    color: #0056b3;
+  }
+  
